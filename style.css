@@ -1,0 +1,22 @@
+body {
+    height: 100%;
+}
+
+#grid {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.gridPiece {
+    min-height: 50px;
+    min-width: 50px;
+}
+
+.gridRow {
+    display: flex;
+}
+
+.hovered {
+    background-color: gray;
+}
