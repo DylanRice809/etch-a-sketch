@@ -8,6 +8,12 @@ let elementSize = 960/canvasSize;
 const grid = document.querySelector("#grid");
 grid.style.gridTemplateColumns = `repeat(${canvasSize}, ${elementSize}px)`;
 
+const reset = document.querySelector(".reset");
+reset.addEventListener("click", () => {
+    removeGrid();
+    createGrid();
+})
+
 // created a new div and adds it to the grid when called
 function createNewDiv () {
     let gridPiece = document.createElement("div");
@@ -20,11 +26,18 @@ function createNewDiv () {
     grid.appendChild(gridPiece);
 }
 
-// creates the grid
 function createGrid () {
     for (let i = 0; i < (canvasSize**2); i++) {
         createNewDiv();
     }   
+}
+
+function removeGrid () {
+    let child = grid.lastElementChild; 
+    while (child) {
+        grid.removeChild(child);
+        child = grid.lastElementChild;
+    }
 }
 
 createGrid();
