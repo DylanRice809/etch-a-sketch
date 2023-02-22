@@ -1,3 +1,18 @@
+.container {
+    display: flex;
+}
+
+html {
+    margin: 0px;
+    height: 100%
+}
+
+body {
+    flex-direction: column;
+    margin: 0px;
+    height: 100%;
+}
+
 #grid {
     display: grid;
 }
@@ -8,4 +23,30 @@
 
 .hovered {
     background-color: gray;
+}
+
+button {
+    align-self: center;
+    justify-self: flex-start;
+}
+
+.body,
+.input {
+    flex-direction: column;
+}
+
+.header {
+    background-color: red;
+    flex-grow: 1;
+}
+
+.bottom {
+    background-color: red;
+    flex-grow: 1;
+}
+
+.left-spacer,
+.right-spacer {
+    background-color: red;
+    flex-grow: 1;
 }

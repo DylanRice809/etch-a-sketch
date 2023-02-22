@@ -2,7 +2,7 @@
 let canvasSize = 100
 
 // sets the size of the individual elements
-let elementSize = 960/canvasSize;
+let elementSize = 720/canvasSize;
 
 // defines the grid and sets its size using the above parameters
 const grid = document.querySelector("#grid");
