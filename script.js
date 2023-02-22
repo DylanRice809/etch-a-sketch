@@ -8,6 +8,7 @@ let elementSize = 960/canvasSize;
 const grid = document.querySelector("#grid");
 grid.style.gridTemplateColumns = `repeat(${canvasSize}, ${elementSize}px)`;
 
+// removes "hovered" class from all elements when pressed
 const reset = document.querySelector(".reset");
 reset.addEventListener("click", () => {
     const gridArray = document.getElementsByClassName("gridPiece");
@@ -15,6 +16,25 @@ reset.addEventListener("click", () => {
         piece.classList.remove("hovered");
     }
 })
+
+const sizeButton = document.querySelector(".size");
+sizeButton.addEventListener("click", () => {
+    changeSize();
+})
+
+// ask the user for the canvas size when called, then draw it
+function changeSize () {
+    outer: while (true) {
+        canvasSize = parseInt(prompt("Please input a new canvas size of 100 or less"));
+        if (canvasSize <= 100) {
+            break outer;
+        }
+    }
+    elementSize = 960/canvasSize;
+    grid.style.gridTemplateColumns = `repeat(${canvasSize}, ${elementSize}px)`;
+    removeGrid();
+    createGrid();
+}
 
 // created a new div and adds it to the grid when called
 function createNewDiv () {
