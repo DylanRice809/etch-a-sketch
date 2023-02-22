@@ -1,20 +1,9 @@
-body {
-    height: 100%;
-}
-
 #grid {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
+    display: grid;
 }
 
 .gridPiece {
-    min-height: 50px;
-    min-width: 50px;
-}
-
-.gridRow {
-    display: flex;
+    background-color: antiquewhite;
 }
 
 .hovered {

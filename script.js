@@ -1,31 +1,30 @@
-const grid = document.querySelector("#grid");
+// sets number of elements in the grid
+let canvasSize = 100
 
-function createNewDiv (row) {
+// sets the size of the individual elements
+let elementSize = 960/canvasSize;
+
+// defines the grid and sets its size using the above parameters
+const grid = document.querySelector("#grid");
+grid.style.gridTemplateColumns = `repeat(${canvasSize}, ${elementSize}px)`;
+
+// created a new div and adds it to the grid when called
+function createNewDiv () {
     let gridPiece = document.createElement("div");
     gridPiece.classList.add("gridPiece");
-    row.appendChild(gridPiece);
+    gridPiece.addEventListener("mouseover", () => {
+        gridPiece.classList.add("hovered");
+    })
+    gridPiece.style.width = `${elementSize}px`;
+    gridPiece.style.height = `${elementSize}px`;
+    grid.appendChild(gridPiece);
 }
 
-function createNewRow () {
-    let gridRow = document.createElement("div");
-    gridRow.classList.add("gridRow");
-    for (let i = 0; i < 32; i++) {
-        createNewDiv(gridRow);
-    }
-    grid.appendChild(gridRow);
-}
-
+// creates the grid
 function createGrid () {
-    for (let i = 0; i < 16; i++) {
-        createNewRow();
-    }    
+    for (let i = 0; i < (canvasSize**2); i++) {
+        createNewDiv();
+    }   
 }
 
 createGrid();
-
-const boxes = document.getElementsByClassName("gridPiece");
-for (const div of boxes) {
-    div.addEventListener("mouseover", () => {
-        div.classList.add("hovered")
-    })
-}
