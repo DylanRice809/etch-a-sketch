@@ -22,15 +22,30 @@ sizeButton.addEventListener("click", () => {
     changeSize();
 })
 
+
+// changes the background colour of the buttons when hovered over
+reset.addEventListener("mouseover", () => {
+    reset.classList.add("clicked");
+})
+reset.addEventListener("mouseout", () => {
+    reset.classList.remove("clicked");
+})
+sizeButton.addEventListener("mouseover", () => {
+    sizeButton.classList.add("clicked");
+})
+sizeButton.addEventListener("mouseout", () => {
+    sizeButton.classList.remove("clicked");
+})
+
 // ask the user for the canvas size when called, then draw it
 function changeSize () {
     outer: while (true) {
         canvasSize = parseInt(prompt("Please input a new canvas size of 100 or less"));
-        if (canvasSize <= 100) {
+        if (canvasSize <= 100 && canvasSize> 0) {
             break outer;
         }
     }
-    elementSize = 960/canvasSize;
+    elementSize = 720/canvasSize;
     grid.style.gridTemplateColumns = `repeat(${canvasSize}, ${elementSize}px)`;
     removeGrid();
     createGrid();
