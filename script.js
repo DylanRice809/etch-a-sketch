@@ -10,8 +10,10 @@ grid.style.gridTemplateColumns = `repeat(${canvasSize}, ${elementSize}px)`;
 
 const reset = document.querySelector(".reset");
 reset.addEventListener("click", () => {
-    removeGrid();
-    createGrid();
+    const gridArray = document.getElementsByClassName("gridPiece");
+    for (const piece of gridArray) {
+        piece.classList.remove("hovered");
+    }
 })
 
 // created a new div and adds it to the grid when called
